@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kittask - Add a new task</title>
+    <link rel="stylesheet" href="../../assets/css/sidebar.css">
+    <link rel="stylesheet" href="add-task.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+</head>
+<body>
+    <div class="sidebar">
+      <div class="logo"><p>KITTASK</p></div>
+      <nav>
+        <ul>
+          <li>
+            <a href="">
+              <i class="fa-solid fa-house"></i>
+              <span class="nav-item">Home</span>
+            </a>
+            <span class="tooltip">Home</span>
+          </li>
+          <li>
+            <a href="">
+              <i class="fa-solid fa-calendar-days"></i>
+              <span class="nav-item">Schedules</span>
+            </a>
+            <span class="tooltip">Schedules</span>
+          </li>
+          <li>
+            <a href="">
+              <i class="fa-solid fa-clipboard"></i>
+              <span class="nav-item">TODO List</span>
+            </a>
+            <span class="tooltip">TODO List</span>
+          </li>
+        </ul>
+        <div class="logout">
+          <a href="auth.html">
+            <i class="fa-solid fa-right-to-bracket"></i>
+            <span>Log-out</span>
+          </a>
+        </div>
+      </nav>
+    </div>
+    <main>
+      <section class="container-1">
+          <div class="task-options">
+            <span class="title">Options - Add a new task</span>
+            <div class="split-line"></div>
+            <form class="options-form">
+              <label class="task-detail">Title: 
+                <input 
+                  type="text"
+                  id="task-title" 
+                  maxlength="30"
+                  placeholder="Your task title.">
+              </label>
+              <label class="task-detail">Description:
+                <textarea
+                  id="task-description" 
+                  minlength="1" 
+                  maxlength="100"
+                  placeholder="Your task description."></textarea>
+              </label>
+              <br>
+              <div class="split-line"></div>
+              <label class="tags">
+                <span>Tags: 
+                  <textarea
+                  id="task-description" 
+                  minlength="1" 
+                  maxlength="100"
+                  placeholder="Split with comma(,): urgent, family, .."></textarea>
+                </span>
+              </label>              
+              <div class="split-line"></div>
+              <label class="deadline">
+                No Deadline:
+                <input type="radio" name="deadline" value="no-deadline" checked>
+                <span class="checkmark">
+                  <i class="fa-solid fa-check"></i>
+                </span>
+              </label>
+              <label class="deadline">
+                Include Deadline:
+                <input type="radio" name="deadline" value="include-deadline">
+                <span class="checkmark">
+                  <i class="fa-solid fa-check"></i>
+                </span>
+              </label>
+              <div class="split-line"></div>
+              <br>
+              <div class="date-select">
+                <span>
+                  <label for="year">Year:
+                    <select name="year" id="year"></select>
+                  </label>
+                </span>
+                <span>
+                  <label for="month">Month:
+                    <select name="month" id="month"></select>
+                  </label>
+                </span>
+                <span>
+                  <label for="day">Day:
+                    <select name="day" id="day"></select>
+                  </label>
+                </span>
+              </div>
+              <div class="time-select">
+                <label for="time">Time: 
+                  <input type="time" id="time" disabled>
+                </label>
+              </div>
+            </form>
+          </div>
+      </section>       
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

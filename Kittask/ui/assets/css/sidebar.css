@@ -1,0 +1,129 @@
+:root{
+    --background-3: #cee8ff;
+    --sidebar: #0d0d16;
+    --font-col-1: #a5a5ff;
+}
+@font-face {
+    font-family: 'main-font';
+    src: url('../fonts/MDGroteskRegular.ttf') format('truetype');
+    font-weight: normal;
+  }
+@font-face {
+  font-family: 'logo';
+  src: url('../fonts/ONEDAY.ttf');
+  font-weight: normal;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+.sidebar {
+    z-index: 2;
+    display: flex;
+    /* justify-content: center; */
+    color: var(--background-3);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background: rgb(13,13,22);
+    background: linear-gradient(195deg, rgba(13,13,22,1) 41%, rgba(22,22,40,1) 71%,
+     rgba(31,31,56,1) 96%, rgb(32, 32, 62) 100%, rgba(41,41,75,1) 100%);
+    height: 100vh;
+    width: 250px;
+    padding-left: 30px;
+    transition: all 0.5s ease;
+    box-shadow: 2px 0px 5px 0px dimgray;
+}
+/* .sidebar.active {
+    width: 250px;
+}
+.sidebar.active ~ .content {
+    left: 250px;
+    width: calc(100% - 250px); 
+} */
+/* .sidebar nav ul li #sidebarbtn {
+    grid-column: 1/1;
+    color: var(--sidebar-font);
+    font-size: 1.2rem;
+    line-height: 50px;
+    cursor: pointer;
+}
+.sidebar.active #sidebarbtn {
+    grid-column: 1/1;
+} */
+.sidebar .tooltip {
+    display: none;
+}
+.sidebar .logo {
+    position: absolute;
+    top: 25px;
+    left: 50%;
+    transform: translate(-50%);
+    padding-bottom: 25px;
+}
+.sidebar .logo p {
+    font-family: 'logo';
+    font-size: 48px;
+}
+.sidebar nav {
+    width: 90%;
+    padding-top: 120px;
+    display: flex;
+    justify-content: center;
+}
+.sidebar nav ul {
+    width: 100%;
+}
+.sidebar nav ul li {
+    display: block;
+    padding: 30px 0 30px 0;
+    width: 90%;
+    box-shadow: 0px 2px 0px 0px #7575d0;
+}
+.sidebar nav ul li a {
+    text-decoration: none;
+    color: var(--font-col-1);
+    transition: 0.5s;
+}
+.sidebar nav ul li a:hover {
+    padding-left: 10px;
+    color: #ceceff;
+}
+.sidebar nav ul li a span{
+    padding-left: 15px;
+    line-height: 20px;
+    font-size: larger;
+}
+.sidebar nav ul li a i {
+
+    font-size: larger;
+    line-height: 20px;
+}
+.sidebar .logout {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+    height: 80px;
+    width: 100%;
+    background-color: var(--font-col-1);
+    transition: all 0.5s ease;
+}
+.sidebar .logout a {
+    line-height: 20px;
+    text-decoration: none;
+    color: var(--sidebar);
+    font-size: x-large;
+    transition: all 0.3s ease;
+}
+.sidebar .logout:hover {
+    background-color: #262645;
+}
+.sidebar .logout:hover a {
+    color: var(--background-3);
+    padding-bottom: 5px;
+}
