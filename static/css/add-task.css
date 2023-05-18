@@ -7,7 +7,9 @@
   --font-col-1-2: #7575d0;
   --font-col-2: #20203e;
   --font-col-3: #0f1448;
-  --font-col-4: #8e8eba
+  --font-col-4: #8e8eba;
+  --font-col-success: #28c128;
+  --font-col-error: #e73d2a;
 }
 * {
   margin: 0;
@@ -40,7 +42,7 @@ a {
   height: 1px;
   width: 85%;
   background: none;
-  border-bottom: solid rgb(0, 0, 0) 2px;
+  border-bottom: solid var(--font-col-3) 2px;
 }
 .container-1 {
   width: 100%;
@@ -52,7 +54,7 @@ a {
 }
 .task-options {
   width: 800px;
-  height: 600px;
+  height: 900px;
   background-color: var(--background-1);    
   border-radius: 10px;
   background: linear-gradient(145deg, #afafcc, #d0d0f3);
@@ -91,7 +93,11 @@ a {
 .options-form .task-detail input[type=text]::placeholder {
   color: var(--font-col-4);
 }
-.options-form .task-detail textarea {
+.options-form .task-description {
+  display: block;
+  margin-bottom: 120px;
+}
+.options-form .task-description textarea {
   float: right;
   border: none;
   padding-left: 5px;
@@ -105,7 +111,7 @@ a {
   resize: none;
   border-radius: 5px;
 }
-.options-form .task-detail textarea::placeholder {
+.options-form .task-description textarea::placeholder {
   color: var(--font-col-4);
 }
 .tags {
@@ -114,7 +120,6 @@ a {
 }
 .tags span {
   display: inline-block;
-  height: 50px;
   width: 100%;
   margin: 20px 0 30px;
 }
@@ -192,17 +197,20 @@ a {
   margin: auto auto;
   opacity: 50%;
   transition: all 0.5s;
+  pointer-events: none;
 }
 .date-select.enabled {
   opacity: 100%;
+  pointer-events: auto;
 }
 .date-select span {
   font-size: inherit;
+  height: 2rem;
 }
 .date-select span select {
   width: 100px;
   height: 100%;
-  font-size: large;
+  font-size: 0.8em;
   border-radius: 4px;
   background: linear-gradient(145deg, var(--background-3), var(--background-3));
   border: none;
@@ -214,19 +222,127 @@ a {
   display: flex;
   justify-content: center;
   margin: 25px;
-  padding-bottom: 10px;
   opacity: 50%;
+  pointer-events: none;
+  height: 2rem;
 }
 .time-select input {
+  height: 100%;
+  font-size: 0.8em;
+  border-radius: 4px;
   background: linear-gradient(145deg, var(--background-3), var(--background-3));
   border: none;
   border-bottom: solid 2px var(--font-col-4);
   border-right: solid 2px var(--font-col-4);
   box-shadow: 2px 2px 5px 0px var(--font-col-4);
-  height: 100%;
-  width: 150px;
-  font-size: 0.8em;
 }
 .time-select.enabled {
   opacity: 100%;
+  pointer-events: auto;
+}
+.submit-button {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  border: solid 2px var(--font-col-3);
+  text-decoration: none;
+  color: var(--background-2);
+  padding: 10px 8px;
+  border-radius: 10px;
+  transition: 0.5s;
+  font-size: large;
+  background: var(--font-col-3);
+  box-shadow: 3px 3px 15px -4px rgba(0,0,0,0.54);
+  cursor: pointer;
+}
+.submit-button:hover {
+  border: solid 2px var(--font-col-1);
+  background: var(--font-col-1);
+  color: var(--font-col-3);
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+.creation-success {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  padding: 15px;
+  font-size: larger;
+  color: var(--font-col-success);
+  text-align: center;
+  background-color: var(--font-col-3);
+  border-radius: 20px;
+  margin-bottom: 25px;
+  z-index: 9999;
+  animation-name: fadeIn;
+  animation-duration: 0.5s;
+}
+.creation-success.hide {
+  animation-name: fadeOut;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+.completed {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  position: relative;
+  width: 250px;
+  margin: 25px auto;
+  cursor: pointer;
+}
+.checkbox {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  background: linear-gradient(145deg, var(--background-3), var(--background-3));
+  box-shadow: 2px 2px 5px 0px var(--font-col-4);
+  border-bottom: solid 2px var(--font-col-4);
+  border-right: solid 2px var(--font-col-4);
+  height: 25px;
+  width: 25px;
+  border-radius: 40%;
+  display: inline-block;
+  transition: all 0.5s;
+}
+.checkbox i {
+  opacity: 0%;
+  transition: all 0.5s;
+  font-size: medium;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.completed input {
+  display: hidden;
+  visibility: hidden;
+}
+.completed input:hover + .checkbox i{
+  opacity: 100%;
+  color: var(--font-col-3);
+}
+.completed input:checked + .checkbox {
+  background: var(--font-col-3);
+}
+.completed input:checked + .checkbox i {
+  opacity: 100%;
+  color: var(--background-2);
 }

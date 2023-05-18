@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../static/css/sidebar.css" />
+    <link rel="stylesheet" href="../../static/css/home.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <title>Kittask - Your Task Manager</title>
+  </head>
+  <body>
+    <section class="sidebar">
+      <div class="logo"><p>KITTASK</p></div>
+      <nav>
+        <ul>
+          <li>
+            <a href="{% url 'home' %}">
+              <i class="fa-solid fa-house"></i>
+              <span class="nav-item">Home</span>
+            </a>
+            <span class="tooltip">Home</span>
+          </li>
+          <li>
+            <a href="{% url 'view_tasks' %}">
+              <i class="fa-solid fa-calendar-days"></i>
+              <span class="nav-item">Schedules</span>
+            </a>
+            <span class="tooltip">Schedules</span>
+          </li>
+          <li>
+            <a href="">
+              <i class="fa-solid fa-clipboard"></i>
+              <span class="nav-item">TODO List</span>
+            </a>
+            <span class="tooltip">TODO List</span>
+          </li>
+        </ul>
+        <div class="account-div">
+          <div class="account">
+            <i class="fa-solid fa-user"></i>
+            <span>{{ fullname}}</span>
+          </div>
+          <div class="logout">
+            <a href="{% url 'login' %}">
+              <i class="fa-solid fa-right-to-bracket"></i>
+              <span>Log-out</span>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </section>
+    <main>
+      <section class="container-1">
+        <div class="container-title">Tasks for Today - {{ date_today }}</div>
+        <div class="tasks-today">
+          {% if not tasks_today %}
+          <span>Guess there are no tasks for today. :)</span>
+          {% endif %}
+          {% if tasks_today %}
+          {% for task in tasks_today %}
+          <div class="task">
+            <div class="title">{{ task.title }}</div>
+            <div class="bottom">
+              <span>{{ task.deadline }}</span>
+            </div>
+            <a href="{% url 'edit_task' task.task_id %}" class="view-task">View Task</a>
+          </div>
+          {% endfor %}
+          {% endif %}
+        </div>
+        <!-- <a href="" class="view-all">View All</a> -->
+      </section>
+      <div class="split-line"></div>
+      <section class="container-2">
+        <div class="apps">
+          <div class="function" onclick="location.href='#';">
+            <div class="title-image"><img src="../../static/images/task.png" alt="task"></div>
+            <div class="title">Add New Tasks</div>
+            <a class="function-button" id="add-task" href="{% url 'add_task' %}">Add Task</a>
+          </div>
+          <div class="function">
+            <div class="title-image"><img src="../../static/images/all-tasks.jpg" alt="task"></div>
+            <div class="title">View All Tasks</div>
+            <a  href="{% url 'view_tasks' %}" class="function-button" id="view-all-task">View Tasks</a>
+          </div>
+          <div class="function">
+            <div class="title-image"><img src="../../static/images/all-tasks.jpg" alt="task"></div>
+            <div class="title">View All Tags</div>
+            <a  href="{% url 'view_tags' %}" class="function-button" id="view-all-tags">View Tags</a>
+          </div>
+        </div>
+        </section>
+    </main>
+  </body>
+</html>

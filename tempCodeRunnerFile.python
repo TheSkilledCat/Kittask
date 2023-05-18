@@ -1,0 +1,2 @@
+p = "dawdadawdad,"
+print(p.split("d"))

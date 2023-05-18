@@ -7,6 +7,9 @@
   --font-col-1-2: #7575d0;
   --font-col-2: #20203e;
   --font-col-3: #0f1448;
+  --font-col-4: #8e8eba;
+  --font-col-success: #28c128;
+  --font-col-error: #e73d2a;
 }
 * {
   margin: 0;
@@ -18,6 +21,7 @@
 body {
   background-color: var(--background-3);
   overflow-x: hidden;
+  height: 100vh;
 }
 main {
   position: absolute;
@@ -25,7 +29,7 @@ main {
   top: 0;
   bottom: 0;
   right: 0;
-  height: 2000px;
+  height: 100%;
 }
 a {
   text-decoration: none;
@@ -87,7 +91,7 @@ a {
 .tasks-today .task .title {
   display: block;
   text-align: center;
-  font-size: larger;
+  font-size: 1.8rem;
   height: 115px;
   border-bottom: solid rgb(53, 54, 67) 2px;
 }
@@ -97,7 +101,7 @@ a {
   position: absolute;
   bottom: 0;
   left: 0;
-  font-size: medium;
+  font-size: large;
 }
 .tasks-today .task .view-task {
   position: absolute;
@@ -121,6 +125,12 @@ a {
   background: var(--font-col-1);
   color: var(--font-col-3);
 }
+.tasks-today > span {
+  text-align: center;
+  font-size: 1.6rem;
+  margin: 25px 0;
+  color: #2c3380;
+}
 .container-1 .view-all {
   width: 130px;
   height: 50px;
@@ -131,7 +141,7 @@ a {
   border: solid 2px var(--font-col-3);
   text-decoration: none;
   color: var(--background-2);
-  padding: 5px;
+  padding: 10px;
   border-radius: 10px;
   transition: 0.5s;
   font-size: large;
@@ -204,6 +214,7 @@ a {
   background: var(--font-col-3);
   box-shadow: 2px 2px 15px -4px rgba(0,0,0,0.54);
   cursor: pointer;
+  text-align: center;
 }
 .function .function-button:hover {
   border: solid 2px var(--font-col-1);

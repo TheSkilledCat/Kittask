@@ -1,8 +1,16 @@
 :root{
-    --background-3: #cee8ff;
+    --background-1: #cee8ff;
+    --background-2: #dff9ff;
+    --background-3: #c2c2ea;
     --sidebar: #0d0d16;
     --font-col-1: #a5a5ff;
-}
+    --font-col-1-2: #7575d0;
+    --font-col-2: #20203e;
+    --font-col-3: #0f1448;
+    --font-col-4: #8e8eba;
+    --font-col-success: #28c128;
+    --font-col-error: #e73d2a;
+  }
 @font-face {
     font-family: 'main-font';
     src: url('../fonts/MDGroteskRegular.ttf') format('truetype');
@@ -63,6 +71,7 @@
     padding-bottom: 25px;
 }
 .sidebar .logo p {
+    color: var(--background-1);
     font-family: 'logo';
     font-size: 48px;
 }
@@ -96,18 +105,35 @@
     font-size: larger;
 }
 .sidebar nav ul li a i {
-
     font-size: larger;
     line-height: 20px;
 }
-.sidebar .logout {
+.sidebar .account-div {
     position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+.sidebar .account {
     display: flex;
     justify-content: center;
     align-items: center;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%);
+    width: 100%;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    font-size: x-large;
+    color: var(--background-1);
+}
+.sidebar .account span {
+    padding-left: 10px;
+    height: 100%;
+}
+.sidebar .logout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 80px;
     width: 100%;
     background-color: var(--font-col-1);

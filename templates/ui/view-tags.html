@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kittask - Edit task {{ task.task_id }}</title>
+    <link rel="stylesheet" href="../../static/css/sidebar.css">
+    <link rel="stylesheet" href="../../static/css/view-tags.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+</head>
+<body>
+  <section class="sidebar">
+    <div class="logo"><p>KITTASK</p></div>
+    <nav>
+      <ul>
+        <li>
+          <a href="{% url 'home' %}">
+            <i class="fa-solid fa-house"></i>
+            <span class="nav-item">Home</span>
+          </a>
+          <span class="tooltip">Home</span>
+        </li>
+        <li>
+          <a href="{% url 'view_tasks' %}">
+            <i class="fa-solid fa-calendar-days"></i>
+            <span class="nav-item">Schedules</span>
+          </a>
+          <span class="tooltip">Schedules</span>
+        </li>
+        <li>
+          <a href="">
+            <i class="fa-solid fa-clipboard"></i>
+            <span class="nav-item">TODO List</span>
+          </a>
+          <span class="tooltip">TODO List</span>
+        </li>
+      </ul>
+      <div class="account-div">
+        <div class="account">
+          <i class="fa-solid fa-user"></i>
+          <span>{{ fullname}}</span>
+        </div>
+        <div class="logout">
+          <a href="{% url 'login' %}">
+            <i class="fa-solid fa-right-to-bracket"></i>
+            <span>Log-out</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </section>
+    <main>
+      <section class="container-1">
+        <div class="all-tags">
+          <span class="title">All Available Tags</span>
+          <div class="split-line"></div>
+          <div class="tag-list">
+            {% for tag in tags %}
+            <span>{{ tag }}</span>
+            {% endfor %}
+          </div>
+        </section>
+        <a class="go-back" href="{% url 'home' %}">Go Back</a>
+    </main>
+</body>
+</html>

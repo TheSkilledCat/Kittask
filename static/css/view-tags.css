@@ -1,0 +1,108 @@
+:root{
+    --background-1: #cee8ff;
+    --background-2: #dff9ff;
+    --background-3: #c2c2ea;
+    --sidebar: #0d0d16;
+    --font-col-1: #a5a5ff;
+    --font-col-1-2: #7575d0;
+    --font-col-2: #20203e;
+    --font-col-3: #0f1448;
+    --font-col-4: #8e8eba;
+    --font-col-success: #28c128;
+    --font-col-error: #e73d2a;
+  }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'main-font', Arial, Helvetica, sans-serif;
+  }
+  html, body {
+    background-color: var(--background-3);
+    overflow-x: hidden;
+    min-width: 900px;
+    height: 100vh;
+    width: 100vw;
+  }
+  main {
+    position: absolute;
+    left: 260px;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+  }
+  a {
+    text-decoration: none;
+  }
+  .split-line {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 1px;
+    width: 85%;
+    background: none;
+    border-bottom: solid var(--font-col-3) 2px;
+  }
+.container-1 {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    color: var(--font-col-2);
+    position: relative;
+}
+.all-tags {
+    width: 600px;
+    height: 600px;
+    background-color: var(--background-1);    
+    border-radius: 10px;
+    background: linear-gradient(145deg, #afafcc, #d0d0f3);
+    box-shadow:  10px 10px 10px #b4b4d3,
+                  -10px -10px 10px #d0d0f3;
+}
+.all-tags .title {
+    display: block;
+    font-size: xx-large;
+    font-weight: bold;
+    text-align: center;
+    margin: 15px 10px;
+}
+.tag-list {
+    display: flex;
+    justify-content: center;
+    margin: 25px 40px;
+    font-size: larger;
+}
+.tag-list span {
+    color: #0f1448;
+    display: block;
+    padding: 8px 10px;
+    margin: 5px 8px;
+}
+.tag-list span:nth-child(even) {
+    color: #232a7a;
+}
+.go-back {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    margin-bottom: 50px;
+    border: solid 2px var(--font-col-3);
+    text-decoration: none;
+    color: var(--background-2);
+    padding: 10px 8px;
+    border-radius: 10px;
+    transition: 0.5s;
+    font-size: larger;
+    background: var(--font-col-3);
+    box-shadow: 3px 3px 15px -4px rgba(0,0,0,0.54);
+    cursor: pointer;
+  }
+  .go-back:hover {
+    border: solid 2px var(--font-col-1);
+    background: var(--font-col-1);
+    color: var(--font-col-3);
+  }

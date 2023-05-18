@@ -7,7 +7,10 @@
     --font-col-1-2: #7575d0;
     --font-col-2: #20203e;
     --font-col-3: #0f1448;
-}
+    --font-col-4: #8e8eba;
+    --font-col-success: #28c128;
+    --font-col-error: #e73d2a;
+  }
 * {
     margin: 0;
     padding: 0;
@@ -26,30 +29,30 @@ a {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 450px;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(3, 1fr);
     justify-items: center;
-    border-radius: 8%;
+    border-radius: 2rem;
     color: var(--background-1);
     background: rgb(13,13,22);
     background: linear-gradient(195deg, rgba(13,13,22,1) 41%, rgba(22,22,40,1) 71%,
      rgba(31,31,56,1) 96%, rgba(32,32,62,1) 100%, rgba(41,41,75,1) 100%);
 
     width: 350px;
+    height: 530px;
     margin: auto;
-    box-shadow:
-            0 2px 10px #00000033,
-            0 10px 20px #0000004d,
-            0 30px 60px 1px #00000080;
+    box-shadow: 
+      0 2px 10px #00000033,
+      0 10px 20px #0000004d,
+      0 30px 60px 1px #00000080;
 }
 .sign-up-box .title {
     grid-row: 1/1;
     margin-top: 40px;
     box-shadow: 0 2px 0 0 var(--background-1);
     height: 50px;
-
+    font-size: larger;
 }
 .sign-up-box .form {
     grid-row: 2/2;
@@ -70,20 +73,22 @@ a {
     background: none;
     box-shadow: 0 2px 0 0 #7575d0;
     width: 100%;
-    color: var(--background-1);
+    color: var(--font-col-1);
     font-size: 1em;
     outline: none;
     margin-bottom: 15px;
+    padding-left: 5px;
 }
 .sign-up-box .form input[type=password].password {
     border: none;
     background: none;
     box-shadow: 0 2px 0 0 #7575d0;
     width: 100%;
-    color: var(--background-1);
+    color: var(--font-col-1);
     font-size: 1em;
     outline: none;
     margin-bottom: 15px;
+    padding-left: 5px;
 }
 .sign-up-box .form .text::placeholder {
     color: rgb(59, 69, 77);
@@ -94,6 +99,7 @@ a {
 .sign-up-box .form .btn-signup {
     background: none;
     text-decoration: none;
+    border: none;
     color: var(--background-1);
     box-shadow: 0 0 0 2px var(--background-1);
     border-radius: 4px;
@@ -105,17 +111,56 @@ a {
     margin-top: 5px;
 }
 .sign-up-box .form .btn-signup:hover {
+    border: none;
     background: var(--background-1);
     color: rgb(59, 69, 77);;
     transition: 0.5s;
 }
 .sign-up-box .have-acc {
     grid-row: 3/-1;
-    margin-top: 50px;
+    margin-top: 60px;
 }
 .sign-up-box .have-acc a {
     color: var(--font-col-1);
+    transition: all 0.5s;
 }
 .sign-up-box .have-acc a:hover {
     color: var(--font-col-1-2);
+}
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+}
+@keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+}
+.errorbox {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    padding: 15px;
+    font-size: larger;
+    color: var(--font-col-error);
+    text-align: center;
+    background-color: var(--font-col-3);
+    border-radius: 20px;
+    margin-bottom: 25px;
+    z-index: 9999;
+    animation-name: fadeIn;
+    animation-duration: 0.5s;
+}
+.errorbox.hide {
+    animation-name: fadeOut;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
 }

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kittask - Add a new task</title>
+    <link rel="stylesheet" href="../../static/css/sidebar.css">
+    <link rel="stylesheet" href="../../static/css/view-tasks.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+</head>
+<body>
+  <section class="sidebar">
+    <div class="logo"><p>KITTASK</p></div>
+    <nav>
+      <ul>
+        <li>
+          <a href="{% url 'home' %}">
+            <i class="fa-solid fa-house"></i>
+            <span class="nav-item">Home</span>
+          </a>
+          <span class="tooltip">Home</span>
+        </li>
+        <li>
+          <a href="{% url 'view_tasks' %}">
+            <i class="fa-solid fa-calendar-days"></i>
+            <span class="nav-item">Schedules</span>
+          </a>
+          <span class="tooltip">Schedules</span>
+        </li>
+        <li>
+          <a href="">
+            <i class="fa-solid fa-clipboard"></i>
+            <span class="nav-item">TODO List</span>
+          </a>
+          <span class="tooltip">TODO List</span>
+        </li>
+      </ul>
+      <div class="account-div">
+        <div class="account">
+          <i class="fa-solid fa-user"></i>
+          <span>{{ fullname}}</span>
+        </div>
+        <div class="logout">
+          <a href="{% url 'login' %}">
+            <i class="fa-solid fa-right-to-bracket"></i>
+            <span>Log-out</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </section>
+  <main>
+    <section class="container-1">
+        <div class="view-tasks">
+            <span class="title">List - View your tasks</span>
+            <div class="split-line"></div>
+            <form method="post">
+              {% csrf_token %}
+              <span class="filter">
+                  <label class="sort">
+                      <span>Sort: 
+                      <input type="text" 
+                      name="sort-prompt"
+                      placeholder="Sort prompt: (cag, udn, cdn, ...)"
+                      required
+                      value="{{ prompt }}">
+                      </span>
+                  </label>  
+                  <label class="tags">
+                      <span>Tags: 
+                      <textarea
+                      name="tags"
+                      minlength="1" 
+                      maxlength="100"
+                      rows="2"
+                      placeholder="Split with comma(,): urgent, family, ...">{{ tags }}</textarea>
+                      </span>
+                  </label>  
+              </span>
+              <button class="apply-filters" type="submit">Apply filters</button>
+            </form>
+            <div class="split-line"></div>
+            <div class="tasks">
+                <table>
+                    <thead>
+                      <tr class="column-titles">
+                        <th>Title</th>
+                        <th>Date Created</th>
+                        <th>Date Modified</th>
+                        <th>Deadline</th>
+                        <th>Completed</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% if tasks %}
+                      {% for task in tasks %}
+                      <tr>
+                        <td>{{ task.title }}</td>
+                        <td>{{ task.date_created }}</td>
+                        <td>{{ task.date_modified }}</td>
+                        <td>{{ task.deadline }}</td>
+                        <td>{{ task.completed }}</td>
+                        <td><a href="{% url 'edit_task' task.task_id %}">View Task</a></td>
+                      </tr>
+                      {% endfor %}
+                      {% endif %}
+                    </tbody>          
+                  </table>
+            </div>
+        </div>
+    </section>
+    {% if error %}
+    <div id="error" class="error">
+      <i class="fa-solid fa-warning"></i> <span>{{ error }}</span>
+    </div>
+    {% endif %}
+  </main>
+  <script src="../../static/scripts/messages.js"></script>
+</body>
+</html>
