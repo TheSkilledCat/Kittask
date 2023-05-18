@@ -5,6 +5,7 @@ We built this project just to help YOU!
 My Discord `SkilledCat#4255`<br>
 My Email `business.skilledcat@gmail.com`
 # Features
+Kittask is based on Python Django library but most of the built-in features are not used due to technical reasons.
 1. Working and easy to use HTML/CSS/JS User interface.
 2. Login/Sign-Up User Management feature.
 3. Ability to add your tasks with/without deadlines, tags, description and etc... 
