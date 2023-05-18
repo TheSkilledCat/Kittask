@@ -54,7 +54,7 @@ a {
 }
 .task-options {
   width: 800px;
-  height: 800px;
+  height: 900px;
   background-color: var(--background-1);    
   border-radius: 10px;
   background: linear-gradient(145deg, #afafcc, #d0d0f3);
