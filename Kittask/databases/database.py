@@ -78,7 +78,7 @@ class Database:
                                deadline = ?, tags = ?, completed = ?
                            WHERE task_id = ?''',
                         (task.title, task.desc, task.date_modified, task.deadline,
-                         task.tags, task.completed))
+                         task.tags, task.completed, task.task_id))
         cls.conn.commit()
         return
 

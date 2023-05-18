@@ -187,10 +187,10 @@ def edit_task(request, task_id: int):
     if request.method == 'POST':
         task_title = request.POST.get('task-title')
         task_desc = request.POST.get('task-desc')
-        created_at = DateTime.get_date_today()
         tags = Verification.validate_tags_str(request.POST.get('tags'))
-        deadline = None
         completed = request.POST.get('completed')
+        if completed:
+            completed = True
         has_deadline = request.POST.get('deadline')
         if has_deadline:
             year = request.POST.get('year')
@@ -198,7 +198,6 @@ def edit_task(request, task_id: int):
             day = request.POST.get('day')
             time = request.POST.get('time')
             deadline = f"{year}/{month}/{day} {time}"
-            deadline = DateTime.change_format(deadline)
         session.edit_task(Task(
             task_id,
             session.u,
@@ -206,7 +205,7 @@ def edit_task(request, task_id: int):
             task_desc,
             "",
             "",
-            deadline,
+            "",
             tags,
             completed
         ))
