@@ -13,7 +13,9 @@ Kittask is based on Python Django library but most of the built-in features are 
 5. Sorting system for your tasks.
 6. Reminder of tasks you have for today.
 7. List of all tags available.
+8. SMS Phone number verification for users.
 # Issues
 ### Most of this issues are issues related to UI and we have the working code inside the project files.
 - Editing tasks still has some issues in the UI part. You can see the code [here](https://github.com/TheSkilledCat/Kittask/blob/main/Kittask/views.py#L181).
 - Date and Time selector may glitch.
+- SMS verification is disabled due to API limitations. The [code](https://github.com/TheSkilledCat/Kittask/blob/main/Kittask/classes/auth.py#L15) is currently commented.
