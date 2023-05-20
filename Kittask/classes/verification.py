@@ -1,31 +1,36 @@
+######################################
+#     Item Verifications such as     #
+#   passwords, tags, phone numbers   #
+######################################
+
 import re
 
 
 class Verification:
     @staticmethod
-    def is_password_valid(password):
+    def is_password_valid(password) -> bool:
         pattern = r"^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
         return bool(re.match(pattern, password))
 
     @staticmethod
-    def is_phone_valid(phone):
+    def is_phone_valid(phone) -> bool:
         pattern = r"^(0098|\+98|0)9[0-9]{9}$"
         return bool(re.match(pattern, phone))
 
     @classmethod
-    def reformat_phone(cls, phone: str):
+    def reformat_phone(cls, phone: str) -> str:
         phone = phone.replace("+98", "0")
         if phone.startswith("0098"):
             phone.replace("0098", "0")
         return phone
 
     @staticmethod
-    def is_email_valid(email):
+    def is_email_valid(email) -> bool:
         pattern = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
         return bool(re.match(pattern, email))
 
     @staticmethod
-    def is_username_valid(username):
+    def is_username_valid(username) -> bool:
         pattern = r"^[A-Za-z0-9_]{6,16}$"
         return bool(re.match(pattern, username))
 
@@ -50,7 +55,7 @@ class Verification:
         tags = cls.validate_tags_arr(tags)
         return ', '.join(tags)
 
-    @classmethod
-    def is_prompt_valid(cls, prompt: str):
+    @staticmethod
+    def is_prompt_valid(cls, prompt: str) -> bool:
         pattern = r"^[cue][ad][gn]$"
         return bool(re.match(pattern, prompt))

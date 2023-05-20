@@ -1,5 +1,3 @@
-import datetime
-
 from Kittask.databases.database import Database
 from .date_time_module import DateTime
 from .task import Task

@@ -1,3 +1,8 @@
+##############################################
+#   Formatting datetime and getting needed   #
+#            datetime information            #
+##############################################
+
 from datetime import datetime
 
 
@@ -13,7 +18,7 @@ class DateTime:
         return time.strftime(r"%I:%M %p")
 
     @classmethod
-    def get_datetime_now(cls):
+    def get_datetime_now(cls) -> str:
         dt = datetime.now()
         return dt.strftime(r"%Y/%m/%d %H:%M")
 

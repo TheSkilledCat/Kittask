@@ -1,3 +1,7 @@
+######################################
+#   Basic model of the User object   #
+######################################
+
 class User:
     def __init__(self, fullname: str, phone: str, password: str, email: str = None):
         self.fullname = fullname

@@ -1,3 +1,8 @@
+################################################
+#   Login and Sign-up are done through this    #
+#           or at least it should be           #
+################################################
+
 from Kittask.databases.database import Database
 from .session import Session
 

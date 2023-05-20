@@ -8,11 +8,7 @@
 from Kittask.databases.database import Database
 
 
-# from kavenegar import *
-
-
 class CLI:
-
     def __init__(self):
         self.session = None
         self.db = Database()

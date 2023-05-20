@@ -1,3 +1,7 @@
+######################################
+#   Basic model of the Task object   #
+######################################
+
 class Task:
     def __init__(self, task_id: int, owned_by: str, title: str, description: str, date_created: str,
                  date_modified: str, deadline: str = None, tags: str = None, completed: bool = False) -> None:

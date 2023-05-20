@@ -1,3 +1,10 @@
+######################################
+#        Brain of the project        #
+#                                    #
+#    Web pages are configured and    #
+#            coded in here.          #
+######################################
+
 from typing import Optional
 
 from django.shortcuts import render, redirect
